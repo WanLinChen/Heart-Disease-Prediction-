@@ -1,6 +1,6 @@
 # ECG Cardiac Disease Classification — 2023 ML Class Competition
 
-> **Course:** Machine Learning (2023) 
+> **Course:** Machine Learning (2023) \
 > **Platform:** [Kaggle — 2023ML Competition](https://www.kaggle.com/competitions/2023mlcompetition/overview)  
 
 
