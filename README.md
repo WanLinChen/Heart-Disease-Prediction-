@@ -1,7 +1,8 @@
 # ECG Cardiac Disease Classification — 2023 ML Class Competition
 
-> **Course:** Machine Learning (2023) \
+> **Course:** Machine Learning (2023)\
 > **Platform:** [Kaggle — 2023ML Competition](https://www.kaggle.com/competitions/2023mlcompetition/overview)  
+
 
 
 ## Problem Statement
@@ -21,10 +22,11 @@ Given a dataset of **12-lead ECG recordings** from 12,209 subjects, classify eac
 ## Project Structure
 
 ```
-├── main.py                  # Full pipeline: preprocessing → feature extraction → prediction
-├── pca.py                   # Hand-crafted PCA implementation
-├── naive_bayes.py           # Hand-crafted Gaussian Naive Bayes classifier
-├── preprocess.py            # ECG denoising, R-peak detection, feature engineering
+├── main.py                  # Full pipeline in one file:
+│                            #   - Hand-crafted PCA
+│                            #   - Hand-crafted Gaussian Naive Bayes
+│                            #   - ECG denoising & R-peak detection
+│                            #   - Age-stratified prediction & CSV export
 ├── data/
 │   ├── ML_Train.npy         # Training ECG signals  (12209, 12, 5000)
 │   ├── ML_Train.csv         # Training metadata (age, sex, label, ...)
@@ -33,17 +35,16 @@ Given a dataset of **12-lead ECG recordings** from 12,209 subjects, classify eac
 └── README.md
 ```
 
----
 
 ## Methodology
 
 ### A. Exploratory Data Analysis
 
-We analyzed the `.csv` metadata (age, sex, height, weight, label) via histograms before choosing features.
+We analyzed the `.csv` metadata (age, gender, height, weight, label) via histograms before choosing features.
 
 Key findings:
 - **Age:** NORM patients are significantly younger on average. Subjects over 70 have NORM rate < 50%.
-- **Sex:** Males have significantly higher rates of CD and MI — consistent with the known cardioprotective effect of estrogen.
+- **Gender:** Males have significantly higher rates of CD and MI — consistent with the known cardioprotective effect of estrogen.
 - **Height / Weight:** No strong discriminative signal found; dropped from final feature set.
 
 ### B. ECG Signal Preprocessing
